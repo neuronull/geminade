@@ -1,0 +1,58 @@
+#refresh_rate: 30 seconds
+appenders:
+    stdout:
+        kind: console
+        encoder:
+            pattern: "{d(%Y-%m-%d %H:%M:%S)} {{{l}}} {m}{n}"
+    requests:
+        kind: file
+        path: "logs/requests.log"
+        encoder:
+            pattern: "{d(%Y-%m-%d %H:%M:%S)} {{{l}}} {m}{n}"
+    all:
+        kind: file
+        path: "logs/all.log"
+        encoder:
+            pattern: "{d(%Y-%m-%d %H:%M:%S)} {{{l}}} {m}{n}"
+    orders:
+        kind: file
+        path: "logs/orders.log"
+        encoder:
+            pattern: "{d(%Y-%m-%d %H:%M:%S)} {{{l}}} {m}{n}"
+    strat_static:
+        kind: file
+        path: "logs/strat_static.log"
+        encoder:
+            pattern: "{d(%Y-%m-%d %H:%M:%S)} {{{l}}} {m}{n}"
+    strat_dips:
+        kind: file
+        path: "logs/strat_dips.log"
+        encoder:
+            pattern: "{d(%Y-%m-%d %H:%M:%S)} {{{l}}} {m}{n}"
+
+root:
+  level: info
+  appenders:
+    - stdout
+    - all
+
+loggers:
+    geminade::strats::dca_static:
+        level: info
+        appenders:
+           - strat_static
+        additive: false
+    geminade::strats::dca_dips:
+        level: info
+        appenders:
+           - strat_dips
+        additive: false
+    geminade::strats::order_utils:
+        level: info
+        appenders:
+           - orders
+        additive: false
+    ureq:
+        level: warn
+        appenders:
+           - requests

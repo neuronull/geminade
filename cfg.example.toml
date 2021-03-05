@@ -1,0 +1,29 @@
+[api]
+url = "https://api.gemini.com"
+key = "<your API key>"
+sec = "<your API secret>"
+
+[sandbox]
+url = "https://api.sandbox.gemini.com"
+key = "<your Sandbox API key"
+sec = "<your Sandbox API secret"
+
+[[strat_static]]
+sandbox = true
+#immediate = true
+symbol = "btcusd"
+usd_per_trade = 175
+trade_day = 7
+trade_hr = 10
+trade_min = 17
+trade_sec = 42
+
+[[strat_dips]]
+sandbox = true
+#immediate = true
+symbol = "btcusd"
+usd_per_window = 225
+trade_day = 7
+trade_hr = 10
+trade_min = 17
+trade_sec = 42
